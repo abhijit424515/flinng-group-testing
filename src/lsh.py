@@ -2,7 +2,6 @@
 
 import numpy as np
 import threading
-from typing import List
 
 
 def combine(item1: np.uint64, item2: np.uint64) -> np.uint64:
