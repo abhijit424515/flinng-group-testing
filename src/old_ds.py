@@ -2,7 +2,7 @@
 
 import numpy as np
 import flinng
-import lsh
+import helpers.old_lsh as old_lsh
 
 
 def checkValidAndGetNumPoints(points, data_dimension):
@@ -110,7 +110,7 @@ class SparseFlinng32:
         if isinstance(data, np.ndarray):
             num_points = data.shape[0]
             point_dimension = data.shape[1]
-            return lsh.parallel_densified_minhash(
+            return old_lsh.parallel_densified_minhash(
                 data.flatten(),
                 num_points,
                 point_dimension,
@@ -120,7 +120,7 @@ class SparseFlinng32:
                 self.seed,
             )
         elif isinstance(data, list):
-            return lsh.parallel_densified_minhash(
+            return old_lsh.parallel_densified_minhash(
                 data,
                 self.num_hash_tables,
                 self.hashes_per_table,
